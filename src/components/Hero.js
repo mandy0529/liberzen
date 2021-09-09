@@ -1,9 +1,11 @@
 import React from 'react';
+import {useGlobalContext} from './Context';
 
 const Hero = () => {
+  const {sidebar, closeSidebar} = useGlobalContext();
   return (
     <>
-      <header className="full-screen">
+      <header onMouseOver={closeSidebar} className="full-screen">
         <video autoPlay={true} muted loop className="video">
           <source src="./video/li.mp4" />
         </video>
@@ -18,9 +20,6 @@ const Hero = () => {
           {/* <button className="banner-btn">go shop</button> */}
         </div>
       </header>
-      <section>
-        <h1 className="hero">hero</h1>
-      </section>
     </>
   );
 };

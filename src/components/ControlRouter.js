@@ -1,12 +1,16 @@
 import React from 'react';
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
-import Detail from './Detail';
+import {Route, Link, BrowserRouter as Router, Switch} from 'react-router-dom';
+import About from './About';
+import Shop from './Shop';
 import Home from './Home';
 const ControlRouter = () => {
   return (
     <Router>
-      <Route path="/" component={Home} />
-      <Route path="/:id" component={Detail} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/shop" component={Shop} />
+      </Switch>
     </Router>
   );
 };
