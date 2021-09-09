@@ -1,9 +1,39 @@
 body {
-    margin: 0;
-   
+    margin: 0 auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  input {
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    cursor: text;
+  }
+  button {
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    cursor: pointer;
+    padding:0;
+    margin:0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+h1,h2,h3 {
+  margin:0;
+  padding:0
+}  
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

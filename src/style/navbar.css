@@ -1,5 +1,22 @@
-.liberzen-logo {
+.navbar {
+    display: flex;
+    align-items: center;
     position: fixed;
+    top:20px;
+    left:40px;
+}
+.toggle-bar {
+    display: flex;
+    align-items: center;
+    border:none;
+    outline:none;
+    background-color: transparent;
+    font-size:30px;
+    color:white;
+    margin-right :30px;
+    transition: all 500ms linear;
+}
+.liberzen {
     top:0;
     font-size: 1.7rem;
     font-weight: bold;
@@ -10,6 +27,47 @@
     font-family: 'Montserrat', sans-serif;
     letter-spacing:0.7rem;
     text-transform: uppercase;
-    margin-left: 30px;
+    transition: all 500ms linear;
   }
+  .sidebar {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 20%;
+    height:100%;
+    position: fixed;
+    z-index: 2;
+    left: -100px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 500ms linear;
+  }
+  .navbar:hover .sidebar {
+    opacity: 1;
+    left:0;
+    background-color: white;
+  }
+  .navbar:hover .liberzen {
+    margin-left: -10px;
+    z-index: 100;
+    color:black;
+  }
+  .navbar:hover .toggle-bar {
+      display: none;
+  }
+
  
+  @media screen and (max-width:768px) {
+    .navbar {
+        left:20px;
+    }
+      .liberzen {
+          font-size:18px;
+          letter-spacing:0.3rem;
+      }
+      .toggle-bar {
+          font-size:15px;
+          margin-right: 12px;
+      }
+  }
