@@ -145,6 +145,12 @@
   .banner-subtitle {
     display: none;
   }
+  .video {
+    opacity: 0.8;
+  }
+  .full-screen video {
+    display: block;
+  }
   /* .full-screen {
     background-repeat: no-repeat;
     background-size: cover;

@@ -64,45 +64,41 @@ const Hero = () => {
     <>
       <header onMouseEnter={closeSidebar} className="full-screen">
         {/* BIG screen */}
-        {!mobile && (
-          <>
-            <video
-              ref={soundRef}
-              autoPlay={mobile && true}
-              controls={false}
-              muted
-              loop
-              className="video"
-            >
-              <source src="./video/li.mp4" />
-            </video>
-            <div className="banner">
-              <img
-                src="./img/logo.png"
-                alt="logo"
-                width="300px"
-                className="banner-subtitle"
-              />
-              <h1 className="banner-title">
-                Live your dream. Wear your passion
-              </h1>
-            </div>
-            <div onClick={handleClick} className="sound">
-              {muted ? (
-                <VscMute className="mute-icon" />
-              ) : (
-                <VscUnmute className="mute-icon" />
-              )}
-            </div>
-            <div onClick={handlePlay} className="play">
-              {play ? (
-                <FiPlay className="play-icon" />
-              ) : (
-                <VscDebugPause className="play-icon" />
-              )}
-            </div>
-          </>
-        )}
+
+        <video
+          ref={soundRef}
+          autoPlay={mobile && false}
+          controls={false}
+          muted
+          loop
+          className="video"
+        >
+          <source src="./video/li.mp4" />
+        </video>
+        <div className="banner">
+          <img
+            src="./img/logo.png"
+            alt="logo"
+            width="300px"
+            className="banner-subtitle"
+          />
+          <h1 className="banner-title">Live your dream. Wear your passion</h1>
+        </div>
+        <div onClick={handleClick} className="sound">
+          {muted ? (
+            <VscMute className="mute-icon" />
+          ) : (
+            <VscUnmute className="mute-icon" />
+          )}
+        </div>
+        <div onClick={handlePlay} className="play">
+          {play ? (
+            <FiPlay className="play-icon" />
+          ) : (
+            <VscDebugPause className="play-icon" />
+          )}
+        </div>
+
         {/* Mobile */}
         {/* {mobile && <Mobile />} */}
         <Link to="/shop" className="go-shop">
