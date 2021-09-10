@@ -4,7 +4,7 @@ import {VscUnmute, VscMute} from 'react-icons/vsc';
 import {Link} from 'react-router-dom';
 
 const Hero = () => {
-  const {closeSidebar, sidebar} = useGlobalContext();
+  const {closeSidebar} = useGlobalContext();
   const [muted, setMuted] = useState(true);
   const soundRef = useRef();
 

@@ -1,0 +1,82 @@
+.box {
+  font-family: 'Nanum Gothic', sans-serif;
+  text-align: center;
+  display: flex;
+  background-color: black;
+  margin: auto;
+  width: 100vw;
+  height: 48rem;
+  color: #fff;
+}
+.box-product {
+  padding: 0 10px;
+  font-weight: bold;
+  font-family: 'Kalam', cursive;
+  font-size: 24px;
+}
+.box-product.title {
+  font-size: 30px;
+}
+.detail-info-title {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.detail-info.product {
+  border-right: 1px dotted white;
+}
+.detail-info {
+  padding-top: 30px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.detail-info_list {
+  padding-top: 10px;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.product {
+  background-color: #282828;
+  flex-basis: 50%;
+}
+.label {
+  background-color: #3f3f3f;
+  flex-basis: 50%;
+}
+.detail-label {
+  display: flex;
+  justify-content: center;
+}
+.detail-label_list {
+  margin: 40px;
+}
+.detail-img {
+  border-radius: 10px;
+  margin: 10px 0;
+}
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
+  .detail-img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .box-product,
+  .box-product.title,
+  .detail-info_list {
+    font-size: 8px;
+  }
+  .detail-label_list {
+    margin: 20px;
+  }
+  .detail-label {
+    margin-top: 50px;
+  }
+  .detail-info {
+    font-size: 10px;
+  }
+  .detail-info-title {
+    font-size: 16px;
+  }
+}

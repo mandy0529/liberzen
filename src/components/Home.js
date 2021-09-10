@@ -4,9 +4,9 @@ import Hero from './Hero';
 const Home = () => {
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <title>Liberzen</title>
-      </Helmet> */}
+      </Helmet>
       <Hero />
     </>
   );

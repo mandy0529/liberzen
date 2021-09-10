@@ -6,10 +6,9 @@ const Shop = () => {
   const {closeSidebar} = useGlobalContext();
   return (
     <section onMouseEnter={closeSidebar} className="about">
-      {/* <Helmet>
+      <Helmet>
         <title>Liberzen | Shop </title>
-      </Helmet> */}
-      <h1 className="about-title"></h1>
+      </Helmet>
     </section>
   );
 };

@@ -12,6 +12,7 @@
 }
 
 .banner {
+  overflow: hidden;
   position: absolute;
   top: 78%;
   left: 34%;

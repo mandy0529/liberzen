@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FaBars} from 'react-icons/fa';
 import {Link, withRouter} from 'react-router-dom';
 import {useGlobalContext} from './Context';
@@ -6,8 +6,8 @@ import {GrFormClose} from 'react-icons/gr';
 import {FaFacebookSquare, FaInstagram} from 'react-icons/fa';
 
 const Navbar = ({location: {pathname}}) => {
-  console.log(pathname);
   const {sidebar, openSidebar, closeSidebar} = useGlobalContext();
+  const [className] = useState('menu-item-active');
 
   const handleClose = (e) => {
     if (!e.target.classList.contains('sidebar.show')) {
@@ -15,6 +15,13 @@ const Navbar = ({location: {pathname}}) => {
     }
   };
 
+  const handleClick = (e) => {
+    e.target.className = 'menu-item-active--hide';
+    if (e.target.className) {
+      closeSidebar();
+    }
+    return;
+  };
   return (
     <>
       <div
@@ -57,21 +64,24 @@ const Navbar = ({location: {pathname}}) => {
           className={`sidebar ${sidebar ? 'show' : ''}`}
         >
           <ul className="nav-menu">
-            <li onClick={closeSidebar} className="menu-item">
-              <Link className="menu-item-active" to="/">
-                Home
-              </Link>
-            </li>
-            <li onClick={closeSidebar} className="menu-item">
-              <Link className="menu-item-active" to="/brand">
+            <div className="menu-item ">
+              <Link
+                onClick={handleClick}
+                className={`menu-item-active ${className ? '--hide' : ''}`}
+                to="/brand"
+              >
                 Brand
               </Link>
-            </li>
-            <li onClick={closeSidebar} className="menu-item">
-              <Link className="menu-item-active" to="/shop">
+            </div>
+            <div className="menu-item ">
+              <Link
+                onClick={handleClick}
+                className={`menu-item-active ${className ? '--hide' : ''}`}
+                to="/shop"
+              >
                 Shop
               </Link>
-            </li>
+            </div>
           </ul>
           <div className="navbar-info">
             <div className="navbar-info_icon">
