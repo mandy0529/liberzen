@@ -50,14 +50,31 @@
   color: white;
   cursor: pointer;
 }
+.play {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
 .mute-icon {
   transition: all 0.3s linear;
 }
-.sound:hover .mute-icon {
+.play-icon {
+  color: white;
+}
+.sound:hover .mute-icon,
+.play:hover .play-icon {
   color: lightgray;
   font-weight: bold;
   transform: scale(1.1);
 }
+
 .go-shop {
   display: none;
   position: absolute;
@@ -128,15 +145,23 @@
   .banner-subtitle {
     display: none;
   }
-  .full-screen {
+  /* .full-screen {
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .video {
+  } */
+  /* .video {
     display: none;
-  }
+  } */
 
   .go-shop {
     display: block;
+  }
+  .play {
+    right: 40px;
+    font-size: 12px;
+  }
+  .sound {
+    font-size: 12px;
+    right: 15px;
   }
 }
