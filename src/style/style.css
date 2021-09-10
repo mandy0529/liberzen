@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-@import './navbar.css';
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
 @import './global.css';
+@import './navbar.css';
 @import './hero.css';
 @import './info.css';
-
+@import './brand.css';

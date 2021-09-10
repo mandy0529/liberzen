@@ -1,11 +1,13 @@
+import Helmet from 'react-helmet';
 import Hero from './Hero';
-import Info from './Info';
 
 const Home = () => {
   return (
     <>
+      {/* <Helmet>
+        <title>Liberzen</title>
+      </Helmet> */}
       <Hero />
-      <Info />
     </>
   );
 };

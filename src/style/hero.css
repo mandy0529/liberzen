@@ -1,73 +1,106 @@
-
 .full-screen {
-    width: 100%;
-    height:100vh;
-    display: flex;
-  }
-  .full-screen video {
-    /* position:absolute; */
-    width:100%;
-    height:100%;
-    margin:auto;
-    object-fit:cover;
-    z-index: -1;
-  }
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.full-screen video {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  object-fit: cover;
+  z-index: -1;
+}
 
-  .banner {
-    position: absolute;
-    top: 78%;
-    left: 34%;
-    letter-spacing: 0.2rem;
+.banner {
+  position: absolute;
+  top: 78%;
+  left: 34%;
+  letter-spacing: 0.2rem;
+}
+.banner-subtitle {
+  background-color: #080e10;
+  color: #080e10;
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 300ms ease-in-out;
+  animation: slideFromLeft 5s ease-in-out 1, showBanner 40s ease-in-out infinite;
+}
+.banner-title {
+  font-family: 'Kalam', cursive;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #070e10;
+  margin-top: 1.5rem;
+  line-height: 1.3;
+  animation: slideFromRight 6s ease-in-out, showBanner 41s ease-in-out infinite;
+}
+
+.sound {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+.mute-icon {
+  transition: all 0.3s linear;
+}
+.sound:hover .mute-icon {
+  color: lightgray;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+.go-shop {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  left: 40%;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 7px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  transition: all 300ms linear;
+}
+.go-shop:hover {
+  background-color: rgba(0, 0, 0, 0.326);
+  transform: scale(0.91);
+}
+
+@keyframes showBanner {
+  0% {
+    opacity: 0;
   }
-  .banner-subtitle {
-    font-size: 2rem;
-    color: #080E10;
-    border-radius:10px;
-    /* animation */
-    padding:15px;
-    background-color:#080E10;
-    transition: all 300ms ease-in-out;
-    animation: slideFromLeft 5s ease-in-out 1, showBanner 40s ease-in-out infinite;
+  7% {
+    opacity: 1;
   }
-  .banner-title {
-    color:#070E10;
-    text-transform: uppercase;
-    font-size: 2rem;
-    letter-spacing:  0.2rem;
-    font-family: 'Kalam', cursive;
-    margin-top: 1.5rem;
-    line-height: 1.3;
-    /* animation */
-    animation: slideFromRight 6s ease-in-out, showBanner 41s ease-in-out infinite;
+  82% {
+    opacity: 1;
   }
-  
-  @keyframes showBanner {
-    0%{
-      opacity:0;
-    }
-    7%{
-      opacity: 1;
-    }
-    82%{
-      opacity:1;
-    }
-    88%{
-      opacity:0
-    }
-    100%{
-      opacity:0;
-    }
+  88% {
+    opacity: 0;
   }
-  @keyframes slideFromRight {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes slideFromRight {
   0% {
     transform: translateX(450px);
   }
-  25%{
+  25% {
     transform: translateX(-150px);
-
   }
   50% {
-    transform:translateX(50px);
+    transform: translateX(50px);
   }
 
   100% {
@@ -89,15 +122,53 @@
   }
 }
 
-  @media screen and (max-width:768px) {
-    .video {
-      display:none;
-    }
-    body {
-    background-color: black;
-    }
-    .banner-subtitle , .banner-title{
-      display:none;
-    }
- 
+@media screen and (max-width: 768px) {
+  .banner-title,
+  .banner-subtitle {
+    display: none;
   }
+  .video {
+    opacity: 0.8;
+    animation: hideVideo 40s infinite;
+  }
+  .full-screen {
+    animation: bgColor 40s infinite;
+  }
+
+  .sound {
+    font-size: 15px;
+    right: 10px;
+    top: 14px;
+  }
+  .go-shop {
+    display: block;
+  }
+}
+@keyframes bgColor {
+  0% {
+    background-color: transparent;
+  }
+  82% {
+    background-color: transparent;
+  }
+  90% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@keyframes hideVideo {
+  0% {
+    display: block;
+  }
+  82% {
+    display: block;
+  }
+  90% {
+    display: none;
+  }
+  100% {
+    display: none;
+  }
+}

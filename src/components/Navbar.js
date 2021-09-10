@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FaBars} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {useGlobalContext} from './Context';
+import {GrFormClose} from 'react-icons/gr';
+import {FaFacebookSquare, FaInstagram} from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({location: {pathname}}) => {
+  console.log(pathname);
   const {sidebar, openSidebar, closeSidebar} = useGlobalContext();
-  const [home, setHome] = useState(true);
 
   const handleClose = (e) => {
     if (!e.target.classList.contains('sidebar.show')) {
@@ -15,36 +17,88 @@ const Navbar = () => {
 
   return (
     <>
-      <div onMouseOver={openSidebar} className="navbar">
-        <button className="toggle-bar">
-          <FaBars />
-        </button>
-        <h3 className={`liberzen ${sidebar ? 'show' : ' '}`}>LIBERZEN</h3>
-      </div>
       <div
-        onMouseLeave={handleClose}
-        className={`sidebar ${sidebar ? 'show' : ''}`}
+        onMouseOver={openSidebar}
+        className={`navbar ${sidebar ? 'show' : ''}`}
       >
-        <ul className="nav-menu">
-          <li onClick={() => setHome(true)} className="menu-item">
-            <Link className="menu-item-active" to="/">
-              Home
-            </Link>
-          </li>
-          <li onClick={() => setHome(false)} className="menu-item">
-            <Link className="menu-item-active" to="/about">
-              About
-            </Link>
-          </li>
-          <li onClick={() => setHome(false)} className="menu-item">
-            <Link className="menu-item-active" to="/shop">
-              Shop
-            </Link>
-          </li>
-        </ul>
+        {/* top */}
+        <div className={`top ${sidebar ? 'show' : ''}`}>
+          <button
+            className="toggle-bar"
+            style={{
+              color: pathname !== '/' ? (sidebar ? 'white' : 'black') : 'white',
+            }}
+          >
+            <FaBars />
+          </button>
+          <Link to="/">
+            <h3
+              className="liberzen"
+              style={{
+                color:
+                  pathname === '/' ? (sidebar ? 'black' : '#fbfbfb') : 'black',
+              }}
+            >
+              LIBERZEN
+            </h3>
+          </Link>
+          {sidebar ? (
+            <GrFormClose
+              onClick={closeSidebar}
+              className={`xIcon ${sidebar ? 'show' : ''}`}
+            />
+          ) : (
+            ''
+          )}
+        </div>
+        {/* list */}
+        <div
+          onMouseLeave={handleClose}
+          className={`sidebar ${sidebar ? 'show' : ''}`}
+        >
+          <ul className="nav-menu">
+            <li onClick={closeSidebar} className="menu-item">
+              <Link className="menu-item-active" to="/">
+                Home
+              </Link>
+            </li>
+            <li onClick={closeSidebar} className="menu-item">
+              <Link className="menu-item-active" to="/brand">
+                Brand
+              </Link>
+            </li>
+            <li onClick={closeSidebar} className="menu-item">
+              <Link className="menu-item-active" to="/shop">
+                Shop
+              </Link>
+            </li>
+          </ul>
+          <div className="navbar-info">
+            <div className="navbar-info_icon">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.facebook.com/Liberzen/?ref=nf&hc_ref=ARSUhTBLxKht4m1rAoNEy8wIGe0d_vvtd99aVgyJ31CY6nDFRfsuJOipFv39oN8aEP0&__tn__=%3C-R"
+              >
+                <FaFacebookSquare className="navbar-info_icon facebook" />
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.instagram.com/liberzen/"
+              >
+                <FaInstagram className="navbar-info_icon insta" />
+              </a>
+            </div>
+            <div className="navbar-container">
+              <h3 className="navbar-info_name"> Liberzen</h3>
+              <h3 className="navbar-info_tel">T : 02-2254-2361</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
