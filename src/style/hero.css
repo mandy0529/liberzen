@@ -60,10 +60,10 @@
 }
 .go-shop {
   display: none;
-  position: fixed;
-  bottom: 50px;
+  position: absolute;
+  margin-top: 30rem;
   left: 40%;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   padding: 7px;
   background-color: black;
@@ -128,48 +128,15 @@
   .banner-subtitle {
     display: none;
   }
-  .video {
-    opacity: 0.8;
-    animation: hideVideo 40s infinite;
-  }
   .full-screen {
-    animation: bgColor 40s infinite;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .video {
+    display: none;
   }
 
-  .sound {
-    font-size: 15px;
-    right: 10px;
-    top: 14px;
-  }
   .go-shop {
     display: block;
-  }
-}
-@keyframes bgColor {
-  0% {
-    background-color: transparent;
-  }
-  82% {
-    background-color: transparent;
-  }
-  90% {
-    background-color: black;
-  }
-  100% {
-    background-color: black;
-  }
-}
-@keyframes hideVideo {
-  0% {
-    display: block;
-  }
-  82% {
-    display: block;
-  }
-  90% {
-    display: none;
-  }
-  100% {
-    display: none;
   }
 }

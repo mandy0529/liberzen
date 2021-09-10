@@ -9,6 +9,7 @@
   transition: all 0.3s linear;
   z-index: 1;
 }
+
 .navbar.show {
   left: 0px;
 }
@@ -68,14 +69,16 @@
 .menu-item-active {
   color: #324d67;
   font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+}
+.menu-item-active--hide {
 }
 
 .menu-item:hover {
   padding-left: 30px;
-}
-.menu-item:hover .menu-item-active {
   font-weight: bold;
 }
+
 .nav-header {
   display: flex;
 }
@@ -112,7 +115,7 @@
 .facebook:hover,
 .insta:hover {
   transform: scale(1.14) rotate(3deg);
-  color: black;
+  color: rgba(0, 0, 0, 0.632);
 }
 
 @media screen and (max-width: 768px) {
@@ -158,7 +161,9 @@
     visibility: visible;
     right: 20px;
   }
-  .menu-item-active--hide {
-    font-size: 16px;
+
+  .navbar:hover {
+    background-color: #fbfbfb;
+    color: black;
   }
 }

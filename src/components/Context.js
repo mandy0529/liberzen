@@ -19,6 +19,7 @@ const AppContextProvider = ({children}) => {
           sidebar,
           openSidebar,
           closeSidebar,
+          setSidebar,
         }}
       >
         {children}

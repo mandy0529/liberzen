@@ -7,7 +7,6 @@ import {FaFacebookSquare, FaInstagram} from 'react-icons/fa';
 
 const Navbar = ({location: {pathname}}) => {
   const {sidebar, openSidebar, closeSidebar} = useGlobalContext();
-  const [className] = useState('menu-item-active');
 
   const handleClose = (e) => {
     if (!e.target.classList.contains('sidebar.show')) {
@@ -15,13 +14,6 @@ const Navbar = ({location: {pathname}}) => {
     }
   };
 
-  const handleClick = (e) => {
-    e.target.className = 'menu-item-active--hide';
-    if (e.target.className) {
-      closeSidebar();
-    }
-    return;
-  };
   return (
     <>
       <div
@@ -59,15 +51,21 @@ const Navbar = ({location: {pathname}}) => {
           )}
         </div>
         {/* list */}
+
         <div
           onMouseLeave={handleClose}
           className={`sidebar ${sidebar ? 'show' : ''}`}
         >
           <ul className="nav-menu">
             <div className="menu-item ">
+              <Link onClick={closeSidebar} className="menu-item-active" to="/">
+                Home
+              </Link>
+            </div>
+            <div className="menu-item ">
               <Link
-                onClick={handleClick}
-                className={`menu-item-active ${className ? '--hide' : ''}`}
+                onClick={closeSidebar}
+                className="menu-item-active"
                 to="/brand"
               >
                 Brand
@@ -75,8 +73,8 @@ const Navbar = ({location: {pathname}}) => {
             </div>
             <div className="menu-item ">
               <Link
-                onClick={handleClick}
-                className={`menu-item-active ${className ? '--hide' : ''}`}
+                onClick={closeSidebar}
+                className="menu-item-active"
                 to="/shop"
               >
                 Shop
