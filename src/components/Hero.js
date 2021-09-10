@@ -64,11 +64,9 @@ const Hero = () => {
     <>
       <header onMouseEnter={closeSidebar} className="full-screen">
         {/* BIG screen */}
-
         <video
           ref={soundRef}
-          autoPlay={mobile && false}
-          controls={false}
+          autoPlay={mobile ? false : true}
           muted
           loop
           className="video"
