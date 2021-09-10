@@ -12,32 +12,32 @@ const Hero = () => {
   const [mobile, setMobile] = useState(false);
   const soundRef = useRef();
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const inner = window.innerWidth;
-  //     if (inner >= 768) {
-  //       setMobile(false);
-  //     } else {
-  //       setMobile(true);
-  //     }
-  //   };
-  //   window.addEventListener('load', handleScroll);
-  //   return () => window.removeEventListener('load', handleScroll);
-  //   // eslint-disable-next-line
-  // }, []);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const inner = window.innerWidth;
-  //     if (inner >= 768) {
-  //       setMobile(false);
-  //     } else {
-  //       setMobile(true);
-  //     }
-  //   };
-  //   window.addEventListener('resize', handleScroll);
-  //   return () => window.removeEventListener('resize', handleScroll);
-  //   // eslint-disable-next-line
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const inner = window.innerWidth;
+      if (inner >= 768) {
+        setMobile(false);
+      } else {
+        setMobile(true);
+      }
+    };
+    window.addEventListener('load', handleScroll);
+    return () => window.removeEventListener('load', handleScroll);
+    // eslint-disable-next-line
+  }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const inner = window.innerWidth;
+      if (inner >= 768) {
+        setMobile(false);
+      } else {
+        setMobile(true);
+      }
+    };
+    window.addEventListener('resize', handleScroll);
+    return () => window.removeEventListener('resize', handleScroll);
+    // eslint-disable-next-line
+  }, []);
 
   const handleClick = () => {
     const isMuted = soundRef.current.muted;
@@ -66,7 +66,14 @@ const Hero = () => {
         {/* BIG screen */}
         {!mobile && (
           <>
-            <video ref={soundRef} autoPlay={true} muted loop className="video">
+            <video
+              ref={soundRef}
+              autoPlay={mobile && true}
+              controls={false}
+              muted
+              loop
+              className="video"
+            >
               <source src="./video/li.mp4" />
             </video>
             <div className="banner">
