@@ -2,10 +2,10 @@ import React from 'react';
 import {useGlobalContext} from './Context';
 
 const Hero = () => {
-  const {sidebar, closeSidebar} = useGlobalContext();
+  const {closeSidebar} = useGlobalContext();
   return (
     <>
-      <header onMouseOver={closeSidebar} className="full-screen">
+      <header onMouseEnter={closeSidebar} className="full-screen">
         <video autoPlay={true} muted loop className="video">
           <source src="./video/li.mp4" />
         </video>

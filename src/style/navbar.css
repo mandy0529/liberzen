@@ -1,94 +1,93 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top:20px;
-    left:40px;
-    z-index:100;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 40px;
+  z-index: 100;
+  color: #fbfbfb;
 }
 .toggle-bar {
-    display: flex;
-    align-items: center;
-    border:none;
-    outline:none;
-    background-color: transparent;
-    font-size:30px;
-    color:#fbfbfd;
-    margin-right :30px;
-    transition: all 500ms linear;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: #fbfbfb;
+  background-color: transparent;
+  font-size: 30px;
+  margin-right: 30px;
+  transition: all 500ms linear;
 }
+
 .liberzen {
-    top:0;
-    font-size: 1.7rem;
-    font-weight: bold;
-    border-radius: 0.25rem;
-    color: #fbfbfd;
-    cursor: pointer;
-    width: 300px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing:0.7rem;
-    text-transform: uppercase;
-    transition: all 500ms linear;
-  }
-  .sidebar {
-    position: absolute;
-    left:-400px;
-    width:300px;
-    height: 100vh;
-    display: flex;
-    background-color:#fbfbfd;
-    transition: all 0.3s linear;
-    z-index:0;
-  }  
-  .sidebar.show {
-    left:0px;
-    position:fixed;
-  }
- 
+  top: 0;
+  font-size: 1.7rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+}
+/* .liberzen.black,.toggle-bar.black {
+      color:black;
+  } */
 .liberzen.show {
-    margin-left: -50px;
-    z-index: 100;
-    color:black;
+  margin-left: -30px;
+  z-index: 100;
+  color: black;
+}
+.sidebar {
+  position: absolute;
+  left: -400px;
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  background-color: #fbfbfd;
+  transition: all 500ms linear;
+  z-index: 0;
+}
+.sidebar.show {
+  left: 0px;
+  position: fixed;
+  transition: all 300ms linear;
+}
+
+.nav-menu {
+  max-width: 100%;
+  padding-top: 110px;
+  top: 80px;
+}
+.menu-item {
+  width: 100%;
+  cursor: pointer;
+  font-size: 35px;
+  margin: 15px 0px;
+  padding: 8px 40px;
+  transition: all 0.3s linear;
+}
+
+.menu-item-active {
+  color: #324d67;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.menu-item:hover {
+  padding-left: 30px;
+}
+.menu-item:hover .menu-item-active {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    left: 20px;
   }
- .nav-menu {
-     max-width:100%;
-     padding-top: 110px;
-     top:80px;
-}
-    .menu-item {
-        width:100%;
-    cursor:pointer;
-    font-size: 35px;
-    margin: 15px 0px;
-    padding:8px 40px;
-    transition: all 0.3s linear
-}
-
-
-.menu-item-active{
-     color:#324d67;
-     font-family: 'Space Grotesk', sans-serif;
-
- }
- .menu-item:hover {
-     padding-left:30px;
- }
-.menu-item:hover .menu-item-active{
-    font-weight:bold;
-}
-
-
- 
-  @media screen and (max-width:768px) {
-    .navbar {
-        left:20px;
-    }
-      .liberzen {
-          font-size:18px;
-          letter-spacing:0.3rem;
-      }
-      .toggle-bar {
-          font-size:15px;
-          margin-right: 12px;
-      }
+  .liberzen {
+    font-size: 18px;
+    letter-spacing: 0.3rem;
   }
+  .toggle-bar {
+    font-size: 15px;
+    margin-right: 12px;
+  }
+}

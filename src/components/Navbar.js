@@ -1,38 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FaBars} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
-import About from './About';
 import {useGlobalContext} from './Context';
-import Detail from './Shop';
-import Home from './Home';
 
 const Navbar = () => {
-  const {sidebar, openSidebar} = useGlobalContext();
+  const {sidebar, openSidebar, closeSidebar} = useGlobalContext();
+  const [home, setHome] = useState(true);
 
-  const handleOpen = () => {
-    openSidebar();
+  const handleClose = (e) => {
+    if (!e.target.classList.contains('sidebar.show')) {
+      closeSidebar();
+    }
   };
+
   return (
     <>
-      <div onMouseOver={handleOpen} className="navbar">
+      <div onMouseOver={openSidebar} className="navbar">
         <button className="toggle-bar">
           <FaBars />
         </button>
-        <h3 className={`liberzen ${sidebar ? 'show' : ''}`}>LIBERZEN</h3>
+        <h3 className={`liberzen ${sidebar ? 'show' : ' '}`}>LIBERZEN</h3>
       </div>
-      <div className={`sidebar ${sidebar ? 'show' : ''}`}>
+      <div
+        onMouseLeave={handleClose}
+        className={`sidebar ${sidebar ? 'show' : ''}`}
+      >
         <ul className="nav-menu">
-          <li className="menu-item">
+          <li onClick={() => setHome(true)} className="menu-item">
             <Link className="menu-item-active" to="/">
               Home
             </Link>
           </li>
-          <li className="menu-item">
+          <li onClick={() => setHome(false)} className="menu-item">
             <Link className="menu-item-active" to="/about">
               About
             </Link>
           </li>
-          <li className="menu-item">
+          <li onClick={() => setHome(false)} className="menu-item">
             <Link className="menu-item-active" to="/shop">
               Shop
             </Link>
