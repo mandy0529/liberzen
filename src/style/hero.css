@@ -54,17 +54,18 @@
 }
 .play-icon {
   color: white;
+  transition: all 0.3s linear;
 }
 .sound:hover .mute-icon,
 .play:hover .play-icon {
-  color: lightgray;
-  font-weight: bold;
+  color: black;
   transform: scale(1.1);
+  cursor: pointer;
 }
 .go-shop {
   display: none;
   position: fixed;
-  bottom: 20%;
+  bottom: 13%;
   left: 40%;
   font-size: 18px;
   font-weight: bold;
@@ -130,7 +131,7 @@
   background-color: black;
   text-align: center;
   margin: 1rem auto;
-  width: 98vw;
+  width: 97vw;
   height: 85vh;
 }
 .video {
@@ -147,19 +148,30 @@
   margin: 0.5rem;
   flex-basis: 43%;
   height: 97%;
+  position: relative;
 }
 .minji-img {
-  width: 100%;
+  width: 90%;
   height: 95%;
   background-size: cover;
   background-position: center;
-  border-radius: 5px;
+}
+.description {
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
 }
 
 @media only screen and (max-width: 768px) {
   .minji-box {
-    padding: 1.5rem 0px 0.2rem 0px;
-    background-color: #000000;
+    padding: 0.3rem 0px 0.2rem 0px;
     width: 100vw;
     margin: auto;
     display: flex;
@@ -178,8 +190,14 @@
   .go-shop {
     display: block;
   }
-  .banner {
+  .banner-subtitle {
     display: none;
+  }
+  .banner-title {
+    animation: none;
+    font-size: 13px;
+    color: white;
+    margin-top: 1.3rem;
   }
   .play-icon,
   .mute-icon {
@@ -187,10 +205,13 @@
   }
   .play {
     right: 40px;
-    top: 1.65rem;
+    top: 1.1rem;
   }
   .sound {
     right: 10px;
-    top: 1.65rem;
+    top: 1.1rem;
+  }
+  .video-box {
+    opacity: 0.8;
   }
 }

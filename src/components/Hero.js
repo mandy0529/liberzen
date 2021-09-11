@@ -35,12 +35,18 @@ const Hero = () => {
       <div className="minji-box">
         <div className="photo-item first-item">
           <img src="img/1.png" className="minji-img" alt="pho" />
+          <p className="description">women</p>
         </div>
         <div className="photo-item second-item">
           <img src="img/3.png" className="minji-img" alt="pho" />
+          <p className="description left ">modern</p>
         </div>
         <div className="photo-item third-item">
           <img src="img/5.png" className="minji-img" alt="pho" />
+          <p className="description">
+            2021 f / w <br />
+            collections
+          </p>
         </div>
       </div>
       <div onClick={() => handleVolume(soundRef.current)} className="sound">

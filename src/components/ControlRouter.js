@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import ControlBrand from './Brand/ControlBrand';
-import Shop from './Shop';
+import Shop from './Shop/Shop';
 import Home from './Home';
 import ControlNavbar from './Navbar/ControlNavbar';
 import Info from './Info';

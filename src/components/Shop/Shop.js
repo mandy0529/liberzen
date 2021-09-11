@@ -1,6 +1,7 @@
 import React from 'react';
-import {useGlobalContext} from './Context';
+import {useGlobalContext} from '../Context';
 import Helmet from 'react-helmet';
+import ShopItem from './ShopItem';
 
 const Shop = () => {
   const {closeSidebar} = useGlobalContext();
@@ -9,6 +10,7 @@ const Shop = () => {
       <Helmet>
         <title>Liberzen | Shop </title>
       </Helmet>
+      <ShopItem />
     </section>
   );
 };
