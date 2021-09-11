@@ -1,78 +1,27 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {useGlobalContext} from './Context';
 import {VscUnmute, VscMute, VscDebugPause} from 'react-icons/vsc';
 import {FiPlay} from 'react-icons/fi';
 import {Link} from 'react-router-dom';
-import Mobile from './Mobile';
 
 const Hero = () => {
-  const {closeSidebar} = useGlobalContext();
-  const [muted, setMuted] = useState(true);
-  const [play, setPlay] = useState(true);
-  const [mobile, setMobile] = useState(false);
+  const {scroll, handleVolume, muted, handlePlay, play} = useGlobalContext();
+
   const soundRef = useRef();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const inner = window.innerWidth;
-      if (inner >= 768) {
-        setMobile(false);
-      } else {
-        setMobile(true);
-      }
-    };
-    window.addEventListener('load', handleScroll);
-    return () => window.removeEventListener('load', handleScroll);
-    // eslint-disable-next-line
-  }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      const inner = window.innerWidth;
-      if (inner >= 768) {
-        setMobile(false);
-      } else {
-        setMobile(true);
-      }
-    };
-    window.addEventListener('resize', handleScroll);
-    return () => window.removeEventListener('resize', handleScroll);
-    // eslint-disable-next-line
-  }, []);
-
-  const handleClick = () => {
-    const isMuted = soundRef.current.muted;
-    if (isMuted) {
-      soundRef.current.muted = false;
-      setMuted(false);
-    } else {
-      soundRef.current.muted = true;
-      setMuted(true);
-    }
-  };
-
-  const handlePlay = () => {
-    if (soundRef.current.paused) {
-      soundRef.current.play();
-      setPlay(true);
-    } else {
-      soundRef.current.pause();
-      setPlay(false);
-    }
-  };
+  const {y} = scroll;
 
   return (
-    <>
-      <header onMouseEnter={closeSidebar} className="full-screen">
-        {/* BIG screen */}
+    <main>
+      <section className="video-box">
         <video
-          ref={soundRef}
-          autoPlay={mobile ? false : true}
-          muted
-          loop
           className="video"
-        >
-          <source src="./video/li.mp4" />
-        </video>
+          autoPlay={true}
+          muted={true}
+          loop
+          playsInline
+          src="./video/li.mp4"
+          ref={soundRef}
+        />
         <div className="banner">
           <img
             src="./img/logo.png"
@@ -82,28 +31,42 @@ const Hero = () => {
           />
           <h1 className="banner-title">Live your dream. Wear your passion</h1>
         </div>
-        <div onClick={handleClick} className="sound">
-          {muted ? (
-            <VscMute className="mute-icon" />
-          ) : (
-            <VscUnmute className="mute-icon" />
-          )}
+      </section>
+      <div className="minji-box">
+        <div className="photo-item first-item">
+          <img src="img/1.png" className="minji-img" alt="pho" />
         </div>
-        <div onClick={handlePlay} className="play">
-          {play ? (
-            <FiPlay className="play-icon" />
-          ) : (
-            <VscDebugPause className="play-icon" />
-          )}
+        <div className="photo-item second-item">
+          <img src="img/3.png" className="minji-img" alt="pho" />
         </div>
-
-        {/* Mobile */}
-        {/* {mobile && <Mobile />} */}
-        <Link to="/shop" className="go-shop">
-          Go shop
-        </Link>
-      </header>
-    </>
+        <div className="photo-item third-item">
+          <img src="img/5.png" className="minji-img" alt="pho" />
+        </div>
+      </div>
+      <div onClick={() => handleVolume(soundRef.current)} className="sound">
+        {muted ? (
+          <VscMute className="mute-icon" />
+        ) : (
+          <VscUnmute className="mute-icon" />
+        )}
+      </div>
+      <div onClick={() => handlePlay(soundRef.current)} className="play">
+        {play ? (
+          <VscDebugPause className="play-icon" />
+        ) : (
+          <FiPlay className="play-icon" />
+        )}
+      </div>
+      <Link
+        to="/shop"
+        className="go-shop"
+        style={{
+          opacity: y > 50 ? '0' : '1',
+        }}
+      >
+        Go shop
+      </Link>
+    </main>
   );
 };
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import Brand from './Brand';
+import ControlBrand from './Brand/ControlBrand';
 import Shop from './Shop';
 import Home from './Home';
-import Navbar from './Navbar';
+import ControlNavbar from './Navbar/ControlNavbar';
 import Info from './Info';
 
 const ControlRouter = () => {
   return (
     <Router>
-      <Navbar />
+      <ControlNavbar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/brand" component={Brand} />
+        <Route path="/brand" component={ControlBrand} />
         <Route path="/shop" component={Shop} />
       </Switch>
       <Info />

@@ -125,13 +125,13 @@
     left: -800px;
   }
   .top {
-    left: 30px;
+    left: 20px;
   }
   .top.show {
     left: 20px;
   }
   .liberzen {
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.3rem;
     color: black;
   }
@@ -139,13 +139,13 @@
     padding-top: 40px;
   }
   .menu-item-active {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .navbar-container h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .toggle-bar {
-    font-size: 15px;
+    font-size: 17px;
     margin-right: 12px;
   }
   .navbar-info {
