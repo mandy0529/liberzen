@@ -1,5 +1,4 @@
-import React, {useContext, useState} from 'react';
-import {useEffect} from 'react/cjs/react.development';
+import React, {useContext, useEffect, useState} from 'react';
 import data from './Brand/data';
 
 const AppContext = React.createContext();
